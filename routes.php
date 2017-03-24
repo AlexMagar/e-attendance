@@ -35,5 +35,7 @@ Route::get('manage/subject', 'manageSubject', 'AdminController', 'page.subject')
 //the route has .png extension because we will fake to the browser as image
 //even though the browser will understand that it is not image
 //we will be able to call this route by create an img element somewhere we need
-Route::get('backup.png', 'backup', 'PageController', 'page.backup')
+Route::get('backup.png', 'backup', 'PageController', 'page.backup'),
+Route::get('student/profile', 'profile', 'StudentController', 'student.profile'),
+Route::post('student/profile', 'createProfile', 'StudentController', 'do.student.profile')
 ];

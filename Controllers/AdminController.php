@@ -8,6 +8,9 @@ use Attendance\Database\UserTable;
 use Attendance\Database\SubjectTable;
 use Attendance\Database\MarksTable;
 use Attendance\Database\MarkModelTable;
+use Attendance\Database\AwardsTable;
+use Attendance\Database\AddressTable;
+use Attendance\Database\ProfileTable;
 use Attendance\Utils\Session;
 
 class AdminController extends BaseController
@@ -79,7 +82,8 @@ class AdminController extends BaseController
     public function init()
     {
         $tables = [AttendanceTable::getInstance(), UserTable::getInstance(), SubjectTable::getInstance()
-        , MarkModelTable::getInstance(), MarksTable::getInstance()
+        , MarkModelTable::getInstance(), MarksTable::getInstance(), AwardsTable::getInstance(), AddressTable::getInstance(),
+        ProfileTable::getInstance()
         ];
         foreach ($tables as $table) {
             if ($table->create()) {

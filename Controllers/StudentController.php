@@ -3,6 +3,7 @@
 use Attendance\Models\User;
 use Attendance\Models\Subject;
 use Attendance\Models\Attendance;
+use Attendance\Models\Profile;
 use Attendance\Utils\MessageBox;
 use Attendance\Core\View;
 use Attendance\Utils\Session;
@@ -62,5 +63,19 @@ class StudentController extends AdminController
             }
         }
         return redirect(route('page.student'));
+    }
+
+    public function profile(){
+        return View::make('student.StudentForm');
+    }
+    public function createProfile($request) {
+        Profile::create(
+            //column name => input value
+            [
+                'first_name' => $request->get('first_name'),
+                'middle_name' => $request->get('middle_name'),
+                'last_name' => $request->get('last_name')
+            ]
+        );
     }
 }
