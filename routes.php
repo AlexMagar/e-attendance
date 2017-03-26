@@ -37,5 +37,6 @@ Route::get('manage/subject', 'manageSubject', 'AdminController', 'page.subject')
 //we will be able to call this route by create an img element somewhere we need
 Route::get('backup.png', 'backup', 'PageController', 'page.backup'),
 Route::get('student/profile', 'profile', 'StudentController', 'student.profile'),
-Route::post('student/profile', 'createProfile', 'StudentController', 'do.student.profile')
+Route::post('student/profile', 'createProfile', 'StudentController', 'do.student.profile'),
+Route::get('student/form','createForm','StudentController','student.form')
 ];

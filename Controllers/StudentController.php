@@ -78,4 +78,8 @@ class StudentController extends AdminController
             ]
         );
     }
+    public function createForm(){
+        //student ko vitra ko form
+        return View::make('student.StudentForm');
+    }
 }
