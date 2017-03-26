@@ -12,7 +12,15 @@
               <input type="text" name="middle_name" placeholder="Bhadur" />
         <label for="last_name">Last Name</label>
               <input type="text" name="last_name" placeholder="Magar" />
-              <input class="btn btn-primary" type="submit" value="send"/>
+        <label for="nationality">Nationality</label>
+              <input type="text" name="nationality" placeholder="Nepali">
+       <label for="citizenship_no">Citizenship_no</label>
+            <input type="number" name="citizenship_no" placeholder="#">
+      <label for="dob">Date of Birth</label>
+            <input type="date" name="dob" placeholder="2014-122-10">
+      <label for="gender">Gender</label>
+            Male<input type="radio" name="male" value="m"/>Female<input type="radio" name="female" value="f"/>
+             <input class="btn btn-primary" type="submit" value="send"/>
     </form>
 
     </div>
