@@ -38,5 +38,6 @@ Route::get('manage/subject', 'manageSubject', 'AdminController', 'page.subject')
 Route::get('backup.png', 'backup', 'PageController', 'page.backup'),
 Route::get('student/profile', 'profile', 'StudentController', 'student.profile'),
 Route::post('student/profile', 'createProfile', 'StudentController', 'do.student.profile'),
-Route::get('student/form','createForm','StudentController','student.form')
+Route::get('student/form','createForm','StudentController','student.form'),
+Route::get('teacher/form','createFrom','TeacherController','teacher.form')
 ];

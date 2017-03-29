@@ -59,4 +59,8 @@ class TeacherController extends AdminController
         }
         return redirect(route('page.teacher'));
     }
+    public function createFrom(){
+         //teacher ko vitra ko form
+        return View::make('teacher.TeacherForm');
+    }
 }

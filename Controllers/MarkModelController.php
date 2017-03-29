@@ -21,13 +21,17 @@ class MarkModelController extends BaseController
         $where = sprintf("WHERE teacher = '%s'", $user->getAttribute('reg_no'));
         $subjects = Subject::select(['*'], $where);
         $fields = [];
+        $sub = '';
         if (count($subjects) > 0) {
             $sub = $subjects[0]['code'];
         }
         if ($request->get('sub') != null) {
             $sub = $request->get('sub');
         }
-        $fields = MarksModel::select(['*'], "WHERE subject = '".$sub."'");
+        $fields = [];
+        if ($sub != "") {
+            $fields = MarksModel::select(['*'], "WHERE subject = '".$sub."'");
+        }
         return View::make('teacher.markmodel', compact('subjects', 'fields'));
     }
 

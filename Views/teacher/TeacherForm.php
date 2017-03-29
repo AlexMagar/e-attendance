@@ -19,7 +19,7 @@
       <label for="dob">Date of Birth</label>
             <input type="date" name="dob" />
       <label for="gender">Gender</label>
-            Male<input type="radio" name="gender" value="m"/>Female<input type="radio" name="gender" value="f"/>
+            Male<input type="radio" name="male" value="m"/>Female<input type="radio" name="female" value="f"/>
              <input class="btn btn-primary" type="submit" value="send"/>
     </form>
 

@@ -21,14 +21,21 @@ class MarkController extends BaseController
         $user = User::logged();
         $where = sprintf("WHERE teacher = '%s'", $user->getAttribute('reg_no'));
         $subjects = Subject::select(['*'], $where);
-        $sub = $subjects[0];
+        $sub = '';
+        if (count($subjects) > 0) {
+            $sub = $subjects[0];
+        }
         if ($request->get('sub') != null) {
             $sub =  SubjectController::getSubject($request, $subjects);
         }
-        $where = sprintf("WHERE semester = %d", $sub['sem']);
-        $students = User::select(['reg_no', 'full_name'], $where);
-        $where = sprintf("WHERE subject = '%s'", $sub['code']);
-        $fields = MarksModel::select(['*'], $where);
+        $students = [];
+        $fields = [];
+        if ($sub != "") {
+            $where = sprintf("WHERE semester = %d", $sub['sem']);
+            $students = User::select(['reg_no', 'full_name'], $where);
+            $where = sprintf("WHERE subject = '%s'", $sub['code']);
+            $fields = MarksModel::select(['*'], $where);
+        }
         return View::make('teacher.mark', compact('subjects', 'students', 'fields'));
     }
 

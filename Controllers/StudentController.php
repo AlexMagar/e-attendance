@@ -18,12 +18,16 @@ class StudentController extends AdminController
             header('HTTP/1.1 403 Forbidden');
             return redirect(route('login.do'));
         }
+      //  dd($request->all());
+        
         if ($request->get('regno') == "" || strtolower(substr($request->get('regno'), 0, 2)) != 'se') {
             MessageBox::set(['failed' => 'Invalid registration number.']);
             return redirect(route('page.student'));
         }
         if (User::create(['full_name' => $request->get('name'), 'reg_no' => $request->get('regno'), 'password' => md5($request->get('pass')), 'batch' => $request->get('batch'), 'semester' => $request->get('semester'), 'role' => User::STUDENT, 'created_by' => User::logged()->getAttribute('reg_no')])) {
             MessageBox::set(['done' => sprintf('Successfully added new student [%s].', $request->get('name'))]);
+            //aru ko aaha lekne
+            $this->createProfile($request);
         } else {
             MessageBox::set(['failed' => sprintf('Adding new student failed [%s].', $request->get('name'))]);
         }
@@ -68,13 +72,18 @@ class StudentController extends AdminController
     public function profile(){
         return View::make('student.StudentForm');
     }
+   
     public function createProfile($request) {
         Profile::create(
             //column name => input value
             [
                 'first_name' => $request->get('first_name'),
                 'middle_name' => $request->get('middle_name'),
-                'last_name' => $request->get('last_name')
+                'last_name' => $request->get('last_name'),
+                'nationality' =>$request->get('nationality'),
+                'citizenship_no' =>$request->get('citizenship_no'),
+                'dob' =>$request->get('dob'),
+                'Gender'=> $request->get('gender')
             ]
         );
     }

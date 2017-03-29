@@ -38,6 +38,20 @@ if (isset($edit) && !empty($edit)) {
         <label>Password</label>
         <input type="password" name="pass" required />
       </fieldset>
+       <label for="first_name">First Name</label>
+             <input type="text" name="first_name" placeholder="Alex"/>
+        <label for="middle_name">Middle Name</label>
+              <input type="text" name="middle_name" placeholder="Bhadur" />
+        <label for="last_name">Last Name</label>
+              <input type="text" name="last_name" placeholder="Magar" />
+        <label for="nationality">Nationality</label>
+              <input type="text" name="nationality" placeholder="Nepali">
+       <label for="citizenship_no">Citizenship_no</label>
+            <input type="number" name="citizenship_no" placeholder="#">
+      <label for="dob">Date of Birth</label>
+            <input type="date" name="dob" />
+      <label for="gender">Gender</label>
+            Male<input type="radio" name="gender" value="m"/>Female<input type="radio" name="gender" value="f"/>
       <input type="submit" class="btn btn-default" value="<?php echo $btn; ?>" />
     </form>
   </div>

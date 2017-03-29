@@ -12,7 +12,8 @@
     [route('page.subject'), 'Subjects', $role == USER::ADMIN],
     [route('student.form'),'Students', $role == USER::STUDENT],
     [route('page.markmodel'), 'Marks Model', $role == USER::TEACHER],
-    [route('page.mark'), 'Marks', $role == USER::TEACHER]
+    [route('page.mark'), 'Marks', $role == USER::TEACHER],
+    [route('teacher.form'),'Teacher',$role == USER::TEACHER]
     ];
     ?>
     <?php
